@@ -50,13 +50,54 @@ colPerc(tableMales)
 ```{r}
 chisq.test(tableMales)
 chisqtestGC(tableMales)
-fisher.test(tableMales)
+fisher.test(tableMales) -> fisherResult
+print(fisherResult)
+```
+
+
+Get the effectiveness for the odds ratio `r round(fisherResult$estimate,3)`
+
+```{r}
+effectiveness = fisherResult$estimate/(fisherResult$estimate+1)*100
+
+```
+
+The drug effectiveness for males is `r effectiveness`%
+
+
+# Females
+
+```{r}
+femalesDataSet = filter(TheData, sex == "gal")
+```
+
+```{r}
+barchartGC(~infected + treatment,data=femalesDataSet)
+barchartGC(~infected + treatment,data=femalesDataSet, type="percent")
+
 ```
 
 
 
+### Numerical Summaries  
 
-# Females
+```{r}
+tableFemales <- xtabs(~infected + treatment, data=femalesDataSet)
+rowPerc(tableMales)
+colPerc(tableMales)
+```
+
+
+
+## Inferential  
+
+```{r}
+chisq.test(tableFemales)
+chisqtestGC(tableFemales)
+fisher.test(tableFemales) -> fisherResult
+print(fisherResult)
+```
+
 
 # Drug Users
 
