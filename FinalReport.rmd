@@ -83,8 +83,8 @@ barchartGC(~infected + treatment,data=femalesDataSet, type="percent")
 
 ```{r}
 tableFemales <- xtabs(~infected + treatment, data=femalesDataSet)
-rowPerc(tableMales)
-colPerc(tableMales)
+rowPerc(tableFemales)
+colPerc(tableFemales)
 ```
 
 
@@ -98,8 +98,23 @@ fisher.test(tableFemales) -> fisherResult
 print(fisherResult)
 ```
 
-
 # Drug Users
+
+```{r}
+DrugUserNoDataSet = filter(TheData, DrugUser == "no")
+```
+
+
+```{r}
+barchartGC(~infected + treatment,data=DrugUserNoDataSet)
+barchartGC(~infected + treatment,data=DrugUserNoDataSet, type="percent")
+
+```
+
+### Numerical Summaries  
+
+
+
 
 # LGBTQ
 
