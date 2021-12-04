@@ -45,6 +45,8 @@ rowPerc(tableMales)
 colPerc(tableMales)
 ```
 
+The numerical summary explains that the majority of the males were okay and uninfected. 41.84% received the placebo while 58.16% received the drug.
+
 
 ## Inferential  
 
@@ -55,6 +57,9 @@ fisher.test(tableMales) -> fisherResult
 print(fisherResult)
 ```
 
+The Pearson Chi Square test the p-value is 0.0006181
+
+In the Fisher test the p-value is 0.0005801
 
 Get the effectiveness for the odds ratio `r round(fisherResult$estimate,3)`
 
@@ -88,7 +93,7 @@ rowPerc(tableFemales)
 colPerc(tableFemales)
 ```
 
-
+The numerical summary explains that the majority of the females were okay and uninfected. 66.89% received the placebo while 33.11% received the drug.
 
 ## Inferential  
 
@@ -98,6 +103,10 @@ chisqtestGC(tableFemales)
 fisher.test(tableFemales) -> fisherResult
 print(fisherResult)
 ```
+
+The Pearson Chi Square test the p-value is 0.000000000000003626 which is extremely low.
+
+In the Fisher test the p-value is 0.00000000000000022
 
 Get the effectiveness for the odds ratio `r round(fisherResult$estimate,3)`
 
@@ -132,6 +141,8 @@ rowPerc(tableDrugUserYes)
 colPerc(tableDrugUserYes)
 ```
 
+The numerical summary explains that the majority of drug users were okay and uninfected. 66.67% received the placebo while 33.33% received the drug.
+
 
 ## Inferential  
 
@@ -142,6 +153,10 @@ fisher.test(tableDrugUserYes) -> fisherResult
 print(fisherResult)
 ```
 
+The Pearson Chi Square test the p-value is 0.003028
+
+In the Fisher test the p-value is 0.002273
+
 Get the effectiveness for the odds ratio `r round(fisherResult$estimate,3)`
 
 ```{r}
@@ -150,7 +165,6 @@ effectiveness = fisherResult$estimate/(fisherResult$estimate+1)*100
 ```
 
 The drug effectiveness for drug users is `r effectiveness`%
-
 
 
 # LGBTQ
@@ -176,6 +190,8 @@ rowPerc(tableLGBTQ)
 colPerc(tableLGBTQ)
 ```
 
+The numerical summary explains that almost half of the LBGTQ members were okay and uninfected. 29.31% received the placebo while 70.69% received the drug.
+
 ## Inferential  
 
 ```{r}
@@ -184,6 +200,10 @@ chisqtestGC(tableLGBTQ)
 fisher.test(tableLGBTQ) -> fisherResult
 print(fisherResult)
 ```
+
+The Pearson Chi Square test the p-value is 0.0000105
+
+In the Fisher test the p-value is 0.000005741
 
 Get the effectiveness for the odds ratio `r round(fisherResult$estimate,3)`
 
@@ -196,3 +216,4 @@ The drug effectiveness for LBGTQ is `r effectiveness`%
 
 # Conclusions and recommendations
 
+In conclusion the men who received the drug were more likely to get Covid than the ones who got the placebo. Females who received the drug were less likely to get Covid than those who got the placebo. Just like the females the drug users had similar reactions. In the LGBTQ community show that those who received the drug were more likely to get covid than the ones who go the placebo just like the mens results. Recommendation regardless of gender, secual orientation, and if one uses drugs or not one need to take the same precautions because whether or not one recieves treatment there is still possibility of contracting covid.
